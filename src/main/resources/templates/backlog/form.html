@@ -1,0 +1,49 @@
+<form class="form" id="form" action="/backlog/" method="post">
+		<input type="hidden" id="id" name="id" />
+		<input type="hidden" id="type" name="type" />
+		<div class="form-group">
+			<label for="link">Link / Texto</label> 
+			<input type="text" onclick="$(this).select();"
+				class="form-control input-lg garlic-auto-save" id="link"
+				name="origin" placeholder="Insira o link aqui..."
+				th:value="${backlog.origin}"
+				required="required" />
+		</div>
+		<button type="button" onclick="BackLog.submit('SEARCH');" class="btn btn-lg btn-info" data-toggle="tooltip" data-placement="bottom" title="Salvar Pesquisa" >
+			<i class="glyphicon glyphicon-search"></i>
+		</button>
+		<button type="button" onclick="BackLog.submit('WORKSHOP');" class="btn btn-lg btn-warning" data-toggle="tooltip" data-placement="bottom" title="Salvar Palestra">
+			<i class="glyphicon glyphicon glyphicon-film"></i> 
+		</button>
+		<button type="button" onclick="BackLog.submit('WORD');" class="btn btn-lg btn-primary" data-toggle="tooltip" data-placement="bottom" title="Salvar Palavra">
+			<i class="glyphicon glyphicon-font"></i>
+		</button>
+		<a class="btn btn-lg btn-danger" data-toggle="tooltip" data-placement="bottom" title="Cancelar" data-dismiss="modal">
+			<i class="glyphicon glyphicon-remove"></i>
+	</a>
+</form>
+
+<script type="text/javascript">
+	var BackLog = function(){
+		var $type, $form;
+		return {
+			init : function(){
+				$type = $('#type'), $form = $('#form'); 
+			},
+			submit : function(type){
+				$type.val(type);
+				$.post('/backlog/', $form.serialize())
+				.success(function(){
+					LembreMe.modal({load: 'hide'}).message({message: 'Sucesso....'}).load();
+				}).fail(function(data){
+					LembreMe.modal({html: data});
+				});
+			}
+		}
+	}();
+
+	$(function(){
+		BackLog.init();
+	});
+	
+</script>

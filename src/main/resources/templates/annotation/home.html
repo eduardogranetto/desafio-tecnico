@@ -1,0 +1,28 @@
+<table class="table table-striped table-hover">
+	<tbody>
+		<tr th:each="annotation : ${annotations}">
+			<td><a target="_blank" th:href="${annotation.link}"
+				th:text="${annotation.link}"></a>
+			</td>
+			<td width="30px"><button data-toggle="tooltip"
+					data-placement="right" title="Editar" class="btn btn-danger">
+					<i class="glyphicon glyphicon glyphicon-pencil"></i>
+				</button></td>
+			<td width="30px"><a th:if="${not #strings.isEmpty(annotation.documentation)}"
+				th:href="${annotation.documentation}" data-toggle="tooltip"
+				data-placement="right" title="Documentação"
+				class="btn btn-warning"><i
+					class="glyphicon glyphicon-console"></i></a>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<ul class="pagination">
+	<li class="disabled"><a href="#">&laquo;</a></li>
+	<li class="active"><a href="#">1</a></li>
+	<li><a href="#">2</a></li>
+	<li><a href="#">3</a></li>
+	<li><a href="#">4</a></li>
+	<li><a href="#">5</a></li>
+	<li><a href="#">&raquo;</a></li>
+</ul>						

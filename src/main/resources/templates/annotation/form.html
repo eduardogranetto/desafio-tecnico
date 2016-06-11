@@ -1,0 +1,64 @@
+<form class="form" id="form" action="/annotations/"
+		method="post">
+		<input type="hidden" id="id" name="id" />
+		<div class="form-group">
+			<label for="description">Descrição</label> <input type="text"
+				class="form-control input-lg garlic-auto-save" id="description"
+				name="description" placeholder="Insira a descri��o aqui..."
+				required="required" />
+		</div>
+		<div class="form-group">
+			<label for="link">Link</label> <input type="text"
+				class="form-control input-lg garlic-auto-save" id="link"
+				name="link" placeholder="Insira o link aqui..."
+				th:value="${annotation.link}"
+				required="required" />
+		</div>
+		<div class="form-group">
+			<label for="subscribe">Assunto</label> <select
+				class="form-control input-lg" id="subscribe" name="subscribe"
+				required="required">
+				<option value="JAVA">Java</option>
+				<option value="FRONT_END">Front-end</option>
+				<option value="NODE">Node</option>
+				<option value="RUBY">Ruby</option>
+				<option value="DEVOPS">Devops</option>
+				<option value="TOOLS">Tools</option>
+				<option value="JOBS">Oportunidades de Trabalho</option>
+				<option value="OTHER">Outro</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label for="documentation">Documentação</label> <input
+				type="text" class="form-control input-lg garlic-auto-save"
+				id="documentation" name="documentation"
+				placeholder="Insira o link aqui..." />
+		</div>
+		<button type="button" onclick="Annotation.submit();" class="btn btn-lg btn-success">
+			<i class="glyphicon glyphicon-ok"></i> Salvar
+		</button>
+		<a onclick="LembreMe.cancel();" class="btn btn-lg btn-danger"><i
+			class="glyphicon glyphicon-remove"></i>Cancelar</a>
+</form>
+<script type="text/javascript">
+	var Annotation = function(){
+		var $form;
+		return {
+			init : function(){
+				$form = $('#form');
+			},
+			submit : function(type){
+				$.post('/annotations/', $form.serialize()).success(function(){
+					LembreMe.modal({load: 'hide'}).message({message: 'Sucesso....'}).load();
+				}).fail(function(data){
+					LembreMe.modal({html: data});
+				});
+			}
+		}
+	}();
+
+	$(function(){
+		Annotation.init();
+	});
+	
+</script>
