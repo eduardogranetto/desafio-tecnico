@@ -1,4 +1,4 @@
-package br.jh.lembre.me.config;
+package br.com.desafiotecnico.config;
 
 //@Configuration
 //@EnableJpaRepositories("br.com.cotadigital.admin.boot")

@@ -1,4 +1,4 @@
-package br.jh.lembre.me.exception;
+package br.com.desafiotecnico.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

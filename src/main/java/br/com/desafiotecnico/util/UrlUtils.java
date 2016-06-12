@@ -1,4 +1,4 @@
-package br.jh.lembre.me.util;
+package br.com.desafiotecnico.util;
 
 import org.thymeleaf.util.StringUtils;
 

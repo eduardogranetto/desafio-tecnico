@@ -1,1 +1,1 @@
-web: java -Dserver.port=$PORT -jar  target/lembre.me-0.0.1-alpha.jar --spring.config.name=heroku
+web: java -Dserver.port=$PORT -jar  target/desafio-tecnico-0.0.1.jar --spring.config.name=heroku

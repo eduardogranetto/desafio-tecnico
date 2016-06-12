@@ -1,7 +1,8 @@
-package br.jh.lembre.me;
+package br.com.desafiotecnico;
 
 import org.springframework.boot.SpringApplication;
-import br.jh.lembre.me.config.WebConfig;
+
+import br.com.desafiotecnico.config.WebConfig;
 
 public class Run {
 	
