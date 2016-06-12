@@ -2,9 +2,12 @@ package br.com.desafiotecnico.config;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.thymeleaf.extras.java8time.dialect.Java8TimeDialect;
+
+import br.com.desafiotecnico.interceptor.LayoutInterceptor;
 
 @SpringBootApplication(scanBasePackages={WebConfig.DEFAULT_PACKAGE})
 public class WebConfig extends WebMvcConfigurerAdapter {
@@ -26,5 +29,10 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     public Java8TimeDialect java8TimeDialect() {
         return new Java8TimeDialect();
     }
+	
+	@Override
+	public void addInterceptors(InterceptorRegistry registry) {
+		registry.addInterceptor(new LayoutInterceptor());
+	}
 	
 }

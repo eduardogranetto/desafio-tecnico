@@ -60,7 +60,7 @@ public class ClienteController {
 
 	@RequestMapping(value="/{id}/remover", method=RequestMethod.DELETE)
 	public ModelAndView excluir(@PathVariable(value="id") Long id, RedirectAttributes redirectAttributes){
-		redirectAttributes.addAttribute("msgSuccess", "Cliente removido com sucesso!");
+		redirectAttributes.addFlashAttribute("msgSuccess", "Cliente removido com sucesso!");
 		clienteService.remover(id);
 		return new ModelAndView("redirect:/clientes/");
 	}

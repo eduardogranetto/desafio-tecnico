@@ -22,8 +22,8 @@
 		      <td th:text="${#temporals.format(cliente.dataCriacao, 'dd/MM/yyyy HH:hh')}"></td>
 		      <td th:text="${cliente.dataAtualizacao != null ? #temporals.format(cliente.dataAtualizacao, 'dd/MM/yyyy HH:hh') : ''}"></td>
 		      <td>
-		      		<a class="btn btn-primary" th:href="${'/clientes/' + cliente.id + '/editar'}"><i class="glyphicon glyphicon-pencil"></i> Editar</a>
-		      		<a class="btn btn-danger" th:href="${'/clientes/' + cliente.id + '/remover'}"><i class="glyphicon glyphicon-remove"></i> Remover</a>
+		      	<a class="btn btn-primary" th:href="${'/clientes/' + cliente.id + '/editar'}"><i class="glyphicon glyphicon-pencil"></i> Editar</a>
+		      	<a class="btn btn-danger" th:href="${'/clientes/' + cliente.id + '/remover'}"><i class="glyphicon glyphicon-remove"></i> Remover</a>
 		      </td>
 		    </tr>
 		  </tbody>

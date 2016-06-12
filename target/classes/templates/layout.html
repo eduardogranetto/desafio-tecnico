@@ -7,8 +7,6 @@
 <link rel="stylesheet" th:href="@{/resources/css/custom.min.css}" />
 </head>
 <body>
-	
-	
 	<div class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -31,11 +29,15 @@
         </div>
       </div>
     </div>
-	
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-12" layout:fragment="content">
-				
+			<div class="col-lg-12">
+				<div th:if="${msgSuccess != null}" class="page-header">
+					<div class="alert alert-success">
+  						<strong>Atenção !</strong><span th:text="${msgSuccess}"></span>
+					</div>			
+				</div>
+				<div layout:fragment="content"></div>
 			</div>
 		</div>
 	</div>
