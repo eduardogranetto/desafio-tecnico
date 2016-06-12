@@ -7,7 +7,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @SpringBootApplication(scanBasePackages={WebConfig.DEFAULT_PACKAGE})
 public class WebConfig extends WebMvcConfigurerAdapter {
 	
-	public static final String DEFAULT_PACKAGE = "br.com.desafiontecnico";
+	public static final String DEFAULT_PACKAGE = "br.com.desafiotecnico";
 	
 	private static final String RESOURCES = "/resources/**";
 	private static final String[] CLASSPATH_RESOURCE_LOCATIONS = {
