@@ -20,6 +20,7 @@ import br.com.desafiotecnico.service.ClienteService;
 @RequestMapping("/clientes")
 public class ClienteController {
 	
+	private static final String REDIRECT_INDEX = "redirect:/clientes/";
 	private static final String INDEX = "clientes/index";
 	private static final String FORM = "clientes/form";
 	private static final String REMOVER = "clientes/remover";
@@ -39,7 +40,7 @@ public class ClienteController {
 
 	@RequestMapping(value="/salvar", method=RequestMethod.POST)
 	public ModelAndView salvar(@Valid @ModelAttribute Cliente cliente, BindingResult result, RedirectAttributes attributes){
-		ModelAndView modelAndView = new ModelAndView("redirect:/clientes/");
+		ModelAndView modelAndView = new ModelAndView(REDIRECT_INDEX);
 		if(result.hasErrors()){
 			return form(cliente);
 		}
@@ -62,7 +63,7 @@ public class ClienteController {
 	public ModelAndView excluir(@PathVariable(value="id") Long id, RedirectAttributes redirectAttributes){
 		redirectAttributes.addFlashAttribute("msgSuccess", "Cliente removido com sucesso!");
 		clienteService.remover(id);
-		return new ModelAndView("redirect:/clientes/");
+		return new ModelAndView(REDIRECT_INDEX);
 	}
 	
 	private ModelAndView form(Cliente cliente) {

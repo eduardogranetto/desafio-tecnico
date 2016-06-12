@@ -1,0 +1,16 @@
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layout">
+	<body layout:fragment="content">
+		 <div class="page-header">
+			  <h3>Cliente</h3>
+		</div>
+		<form th:method="delete" th:action="@{${'/clientes/' + cliente.id + '/remover'}}" th:object="${cliente}">
+			<div class="alert alert-danger">
+  				<strong>Atenção !</strong> Deseja remover cliente <span th:text="${cliente.nome}"></span> ?
+			</div>			
+			<div class="form-group">
+				<button type="submit" class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i> Sim</button>
+				<a class="btn btn-info" th:href="@{/clientes/}"><i class="glyphicon glyphicon-ok"></i> Não</a>
+			</div>
+		</form>
+	</body>
+</html>
