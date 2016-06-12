@@ -6,5 +6,7 @@
 /opt/desafio-tecnico/src/main/java/br/com/desafiotecnico/service/ClienteService.java
 /opt/desafio-tecnico/src/main/java/br/com/desafiotecnico/config/JPAConfig.java
 /opt/desafio-tecnico/src/main/java/br/com/desafiotecnico/config/WebConfig.java
+/opt/desafio-tecnico/src/main/java/br/com/desafiotecnico/repository/ClienteRepository.java
 /opt/desafio-tecnico/src/main/java/br/com/desafiotecnico/service/ClienteServiceImpl.java
+/opt/desafio-tecnico/src/main/java/br/com/desafiotecnico/model/GenericEntity.java
 /opt/desafio-tecnico/src/main/java/br/com/desafiotecnico/controller/HomeController.java
