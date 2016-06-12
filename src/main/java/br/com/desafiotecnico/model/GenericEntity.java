@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
+import javax.persistence.PreUpdate;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.data.annotation.CreatedDate;
@@ -27,7 +28,7 @@ public abstract class GenericEntity implements Serializable{
 	private LocalDateTime dataCriacao = LocalDateTime.now();
 	
 	@Column(name="data_atualizacao")
-	private LocalDateTime dataAtualizacao = LocalDateTime.now();
+	private LocalDateTime dataAtualizacao;
 
 	public Long getId() {
 		return id;
@@ -47,6 +48,11 @@ public abstract class GenericEntity implements Serializable{
 
 	public void setDataAtualizacao(LocalDateTime dataAtualizacao) {
 		this.dataAtualizacao = dataAtualizacao;
+	}
+	
+	@PreUpdate
+	public void preUpdate(){
+		this.dataAtualizacao = LocalDateTime.now();
 	}
 	
 }
