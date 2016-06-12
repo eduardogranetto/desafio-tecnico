@@ -17,7 +17,7 @@ public class ClienteController {
 	@Autowired
 	private ClienteService clienteService;
 
-	@RequestMapping(value = "/clientes", method = RequestMethod.GET)
+	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView index(){
 		return new ModelAndView(INDEX).addObject("clientes", clienteService.buscarTodos());
 	}
