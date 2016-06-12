@@ -1,8 +1,11 @@
 package br.com.desafiotecnico.config;
 
-//@Configuration
-//@EnableJpaRepositories("br.com.cotadigital.admin.boot")
-//@EntityScan("br.com.cotadigital.admin.boot")
-public class JPAConfig {
+import org.springframework.boot.orm.jpa.EntityScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
+@Configuration
+@EnableJpaRepositories(WebConfig.DEFAULT_PACKAGE)
+@EntityScan(WebConfig.DEFAULT_PACKAGE)
+public class JPAConfig {
 }

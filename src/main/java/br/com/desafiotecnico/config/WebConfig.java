@@ -4,8 +4,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
-@SpringBootApplication(scanBasePackages={"br.com.desafiotecnico"})
+@SpringBootApplication(scanBasePackages={WebConfig.DEFAULT_PACKAGE})
 public class WebConfig extends WebMvcConfigurerAdapter {
+	
+	public static final String DEFAULT_PACKAGE = "br.com.desafiontecnico";
 	
 	private static final String RESOURCES = "/resources/**";
 	private static final String[] CLASSPATH_RESOURCE_LOCATIONS = {

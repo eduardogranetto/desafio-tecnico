@@ -1,6 +1,10 @@
+br/com/desafiotecnico/service/ClienteServiceImpl.class
 br/com/desafiotecnico/Run.class
+br/com/desafiotecnico/controller/ClienteController.class
 br/com/desafiotecnico/exception/ValidatorException.class
 br/com/desafiotecnico/controller/HomeController.class
+br/com/desafiotecnico/service/ClienteService.class
 br/com/desafiotecnico/config/JPAConfig.class
 br/com/desafiotecnico/config/WebConfig.class
 br/com/desafiotecnico/util/UrlUtils.class
+br/com/desafiotecnico/model/Cliente.class
