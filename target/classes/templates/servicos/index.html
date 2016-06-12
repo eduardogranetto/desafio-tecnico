@@ -1,0 +1,106 @@
+<html lang="pt-br">
+<head>
+<title>LEMBRE.ME | Recorde seus aprendizados</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<!-- <meta http-equiv="refresh" content="60" /> -->
+
+<link rel="stylesheet" th:href="@{/resources/css/bootstrap.min.css}"
+	media="screen" />
+<link rel="stylesheet" th:href="@{/resources/css/custom.min.css}" />
+</head>
+<body>
+	<div class="navbar navbar-default navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a href="../" class="navbar-brand"> <i
+					class="glyphicon glyphicon-glyphicon glyphicon-cloud"></i>
+				</a>
+				<button class="navbar-toggle" type="button" data-toggle="collapse"
+					data-target="#navbar-main">
+					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="page-header">
+
+					<div th:if="${msg}" class="alert alert-dismissible alert-warning">
+						<button type="button" class="close" data-dismiss="alert">&times;</button>
+						<h4>Sucesso!</h4>
+						<p th:text="${msg}"></p>
+					</div>
+
+					<div class="jumbotron">
+						<form action="/annotations/search" method="get"
+							class="form-inline">
+							<div class="form-group">
+								<input onclick="$(this).select();" id="text" type="text"
+									class="input-lg" name="text" style="width: 500px;"
+									placeholder="Pesquisa ou link" th:value="${link}" />
+							</div>
+							<button type="submit" class="btn btn-primary btn-lg">
+								<i class="glyphicon glyphicon-search"></i> Pesquisar
+							</button>
+							<a onclick="LembreMe.backlog();" class="btn btn-info btn-lg"><i
+								class="glyphicon glyphicon-plus"></i> Backlog</a> <a
+								onclick="LembreMe.annotation();" class="btn btn-success btn-lg"><i
+								class="glyphicon glyphicon-plus"></i> Anotação</a>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h3 class="panel-title">Backlog</h3>
+					</div>
+					<div class="panel-body">
+						<div id="panel_backlogs"></div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-6">
+				<div class="panel panel-info">
+					<div class="panel-heading"><h3 class="panel-title">Anotações</h3></div>
+						<div class="panel-body">
+							<div id="panel_annotations"></div>
+						</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div>
+		<div class="modal" id="modal" tabindex="-1" role="dialog"
+			aria-labelledby="add" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" aria-label="Fechar"  data-dismiss="modal"> <span aria-hidden="true">&times;</span></button>
+						<h4 id="modal_title" class="modal-title"></h4>
+					</div>
+					<div id="modal_body" class="modal-body"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script th:src="@{/resources/js/jquery-2.2.3.min.js}"></script>
+	<script th:src="@{/resources/js/bootstrap.min.js}"></script>
+	<script th:src="@{/resources/js/bootstrap-notify.min.js}"></script>
+	<script th:src="@{/resources/js/custom.js}"></script>
+	<script th:src="@{/resources/js/lembre.me.js}"></script>
+	<script th:src="@{/resources/js/components.js}"></script>
+	<script type="text/javascript">
+		$(function(){
+			Config.load_components();
+		});
+	</script>
+</body>
+</html>
