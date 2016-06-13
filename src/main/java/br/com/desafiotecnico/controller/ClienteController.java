@@ -24,6 +24,7 @@ public class ClienteController {
 	private static final String INDEX = "clientes/index";
 	private static final String FORM = "clientes/form";
 	private static final String REMOVER = "clientes/remover";
+	private static final String ORDEM_SERVICO = "clientes/ordem_servico";
 	
 	@Autowired
 	private ClienteService clienteService;
@@ -51,6 +52,11 @@ public class ClienteController {
 	@RequestMapping(value="/{id}/editar", method=RequestMethod.GET)
 	public ModelAndView editar(@PathVariable(value="id") Long id){
 		return form(clienteService.buscarPorId(id)); 
+	}
+
+	@RequestMapping(value="/{id}/ordens_servico", method=RequestMethod.GET)
+	public ModelAndView ordensServico(@PathVariable(value="id") Long id){
+		return new ModelAndView(ORDEM_SERVICO).addObject("cliente", clienteService.buscarPorId(id)); 
 	}
 	
 	@RequestMapping(value="/{id}/remover", method=RequestMethod.GET)

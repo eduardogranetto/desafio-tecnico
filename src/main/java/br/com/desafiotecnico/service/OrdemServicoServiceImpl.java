@@ -1,5 +1,7 @@
 package br.com.desafiotecnico.service;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
@@ -30,6 +32,22 @@ public class OrdemServicoServiceImpl extends GenericServiceImpl<OrdemServico> im
 		ordemServico.setCliente(clienteId != null ? clienteService.buscarPorId(clienteId) : null);
 		ordemServico.setServico(servicoId != null ? servicoService.buscarPorId(servicoId) : null);
 		return ordemServico;
+	}
+
+	@Override
+	@Transactional
+	public void pagar(Long id) {
+		OrdemServico ordemServico = buscarPorId(id);
+		ordemServico.pagar();
+		salvar(ordemServico);
+	}
+
+	@Override
+	@Transactional
+	public void cancelarPagamento(Long id) {
+		OrdemServico ordemServico = buscarPorId(id);
+		ordemServico.cancelarPagamento();
+		salvar(ordemServico);
 	}
 
 }

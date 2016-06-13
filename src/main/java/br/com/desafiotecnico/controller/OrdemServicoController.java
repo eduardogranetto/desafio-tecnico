@@ -75,6 +75,20 @@ public class OrdemServicoController {
 		return new ModelAndView("redirect:/");
 	}
 	
+	@RequestMapping(value="/{id}/pagar", method=RequestMethod.GET)
+	public ModelAndView pagar(@PathVariable(value="id") Long id, RedirectAttributes redirectAttributes){
+		redirectAttributes.addFlashAttribute("msgSuccess", "Ordem de serviço paga com sucesso!");
+		ordemServicoService.pagar(id);
+		return new ModelAndView("redirect:/");
+	}
+	
+	@RequestMapping(value="/{id}/cancelar_pagamento", method=RequestMethod.GET)
+	public ModelAndView cancelarPagamento(@PathVariable(value="id") Long id, RedirectAttributes redirectAttributes){
+		redirectAttributes.addFlashAttribute("msgSuccess", "pagamento cancelado com sucesso!");
+		ordemServicoService.cancelarPagamento(id);
+		return new ModelAndView("redirect:/");
+	}
+	
 	private ModelAndView form(OrdemServico ordemServico) {
 		return new ModelAndView(FORM)
 				.addObject("ordemServico", ordemServico)

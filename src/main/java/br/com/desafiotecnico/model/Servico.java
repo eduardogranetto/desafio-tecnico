@@ -16,13 +16,13 @@ public class Servico extends GenericEntity{
 
 	private static final long serialVersionUID = 8729550765031837999L;
 
-	@Column
 	@NotBlank
 	@Length(min=3, max=50)
+	@Column(nullable=false, length=50)
 	private String nome;
 	
-	@Column
 	@NotNull
+	@Column(nullable=false, length=12, scale=2)
 	private BigDecimal valor;
 	
 	public String getNome() {

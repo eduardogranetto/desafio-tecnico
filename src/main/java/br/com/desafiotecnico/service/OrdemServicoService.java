@@ -6,4 +6,8 @@ public interface OrdemServicoService extends GenericService<OrdemServico>{
 
 	OrdemServico criar(Long clienteId, Long servicoId);
 
+	void pagar(Long id);
+
+	void cancelarPagamento(Long id);
+
 }

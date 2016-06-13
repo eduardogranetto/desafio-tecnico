@@ -54,7 +54,7 @@ public class ServicoController{
 	
 	@RequestMapping(value="/{id}/remover", method=RequestMethod.GET)
 	public ModelAndView remover(@PathVariable(value="id") Long id){
-		return new ModelAndView(REMOVER).addObject("servicos", servicoService.buscarPorId(id));
+		return new ModelAndView(REMOVER).addObject("servico", servicoService.buscarPorId(id));
 	}
 
 	@RequestMapping(value="/{id}/remover", method=RequestMethod.DELETE)

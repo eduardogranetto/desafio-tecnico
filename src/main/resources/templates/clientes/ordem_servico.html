@@ -1,26 +1,28 @@
 <html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layout">
 	<body layout:fragment="content">
 		 <div class="page-header">
-			  <h3>Ordens de serviÃ§o <a class="btn btn-success" href="/ordens_servico/novo"><i class="glyphicon glyphicon-plus"></i> Novo</a></h3>
+			  <h3>Ordens de Serviço do cliente <a class="btn btn-success" th:href="'/ordens_servico/novo?id_cliente=' + ${cliente.id}"><i class="glyphicon glyphicon-plus"></i> Nova</a></h3>
 		</div>
+		<dl>
+			<dt>Nome:</dt>
+			<dd th:text="${cliente.nome}"></dd>
+		</dl>	
 		<table class="table table-striped table-hover ">
 		  <thead>
 		    <tr>
 		      <th>#</th>
-		      <th>Cliente</th>
-		      <th>ServiiÃ§o</th>
+		      <th>Serviço</th>
 		      <th>Data</th>
 		      <th>Dias para o termino</th>
-		      <th>Valor serviÃ§os</th>
+		      <th>Valor serviço</th>
 		      <th>Total (Com desconto)</th>
 		      <th>Pago</th>
 		      <th></th>
 		    </tr>
 		  </thead>
 		  <tbody>
-		    <tr th:each="ordemServico : ${ordensServico}">
+		    <tr th:each="ordemServico : ${cliente.ordensServico}">
 		      <td th:text="${ordemServico.id}"></td>
-		      <td><a th:href="${'/clientes/' + ordemServico.cliente.id + '/editar'}" th:text="${ordemServico.cliente.nome}"></a></td>
 		      <td><a th:href="${'/servicos/' + ordemServico.servico.id + '/editar'}" th:text="${ordemServico.servico.nome}"></a></td>
 		      <td th:text="${#temporals.format(ordemServico.inicio, 'dd/MM/yyyy') + ' à  ' + #temporals.format(ordemServico.fim, 'dd/MM/yyyy')}"></td>
 		      <td th:text="${ordemServico.diasParaTermino}"></td>
@@ -35,7 +37,6 @@
 		      </td>
 		    </tr>
 		  </tbody>
-		</table> 
-	
+		</table>				
 	</body>
 </html>

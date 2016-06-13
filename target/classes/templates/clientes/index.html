@@ -9,8 +9,8 @@
 		      <th>#</th>
 		      <th>Nome</th>
 		      <th>Tipo</th>
-		      <th>Data CriaÃ§Ã£o</th>
-		      <th>Ãšltima atualizaÃ§Ã£o</th>
+		      <th>Data Criação</th>
+		      <th>Última atualização</th>
 		      <th></th>
 		    </tr>
 		  </thead>
@@ -22,9 +22,10 @@
 		      <td th:text="${#temporals.format(cliente.dataCriacao, 'dd/MM/yyyy HH:hh')}"></td>
 		      <td th:text="${cliente.dataAtualizacao != null ? #temporals.format(cliente.dataAtualizacao, 'dd/MM/yyyy HH:hh') : ''}"></td>
 		      <td>
-		      	<a class="btn btn-primary" th:href="${'/clientes/' + cliente.id + '/editar'}"><i class="glyphicon glyphicon-pencil"></i> Editar</a>
-		      	<a class="btn btn-danger" th:href="${'/clientes/' + cliente.id + '/remover'}"><i class="glyphicon glyphicon-remove"></i> Remover</a>
-		      	<a class="btn btn-info" th:href="${'/ordens_servico/novo?id_cliente=' + cliente.id}"><i class="glyphicon glyphicon-plus"></i> Nova Ordem de ServiÃ§o</a>
+		      	<a class="btn btn-sm btn-primary" th:href="${'/clientes/' + cliente.id + '/ordens_servico' }"><i class="glyphicon glyphicon-pencil"></i> Ordens de Serviço</a>
+		      	<a class="btn btn-sm btn-primary" th:href="${'/clientes/' + cliente.id + '/editar'}"><i class="glyphicon glyphicon-pencil"></i> Editar</a>
+		      	<a class="btn btn-sm btn-danger" th:href="${'/clientes/' + cliente.id + '/remover'}"><i class="glyphicon glyphicon-remove"></i> Remover</a>
+		      	<a class="btn btn-sm btn-info" th:href="${'/ordens_servico/novo?id_cliente=' + cliente.id}"><i class="glyphicon glyphicon-plus"></i> Nova Ordem de Serviço</a>
 		      </td>
 		    </tr>
 		  </tbody>

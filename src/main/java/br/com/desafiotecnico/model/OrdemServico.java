@@ -2,6 +2,7 @@ package br.com.desafiotecnico.model;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -34,17 +35,20 @@ public class OrdemServico extends GenericEntity{
 	private LocalDate fim;
 	
 	@NotNull
-	@JoinColumn
+	@JoinColumn(name="id_servico", referencedColumnName="id")
 	@ManyToOne(fetch=FetchType.LAZY)
 	private Servico servico;
 
 	@NotNull
-	@JoinColumn
+	@JoinColumn(name="id_cliente", referencedColumnName="id")
 	@ManyToOne(fetch=FetchType.LAZY)
 	private Cliente cliente;
 	
 	@Column
-	private Boolean pago;
+	private BigDecimal valorPago;
+	
+	@Column
+	private Boolean pago = Boolean.FALSE;
 
 	public LocalDate getInicio() {
 		return inicio;
@@ -81,10 +85,27 @@ public class OrdemServico extends GenericEntity{
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
-
+	
 	public BigDecimal getTotal(){
-		return new CalculadorPreco(this).calcular().getValorTotal();
+		return isPago() ? valorPago : new CalculadorPreco(this).calcular().getValorTotal();
 	}
 
+	public BigDecimal valorPago(){
+		return valorPago;
+	}
+	
+	public Long getDiasParaTermino(){
+		return inicio.until(fim, ChronoUnit.DAYS);
+	}
+
+	public void cancelarPagamento() {
+		this.valorPago = BigDecimal.ZERO;
+		this.pago = Boolean.FALSE;
+	}
+	
+	public void pagar(){
+		this.valorPago = getTotal();
+		this.pago = Boolean.TRUE;
+	}
 	
 }

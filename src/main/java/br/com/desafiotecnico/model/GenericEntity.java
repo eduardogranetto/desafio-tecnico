@@ -13,6 +13,8 @@ import javax.validation.constraints.NotNull;
 
 import org.springframework.data.annotation.CreatedDate;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @MappedSuperclass
 public abstract class GenericEntity implements Serializable{
 
@@ -25,9 +27,11 @@ public abstract class GenericEntity implements Serializable{
 	@NotNull
 	@CreatedDate
 	@Column(name="data_criacao")
+	@JsonFormat(pattern = "dd/MM/yyyy HH:mm")
 	private LocalDateTime dataCriacao = LocalDateTime.now();
 	
 	@Column(name="data_atualizacao")
+	@JsonFormat(pattern = "dd/MM/yyyy HH:mm")
 	private LocalDateTime dataAtualizacao;
 
 	public Long getId() {

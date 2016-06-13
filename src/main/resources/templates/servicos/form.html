@@ -12,7 +12,7 @@
   			</div>
 			<div th:class="${'form-group ' + (#fields.hasErrors('valor') ? 'has-error has-danger' : '' ) }">
 				<label for="nome">Valor:</label>
-    			<input type="text" class="form-control" id="valor" th:field="*{valor}" />
+    			<input type="text" class="form-control money" id="valor" th:field="*{valor}" />
     			<div th:if="${#fields.hasErrors('valor')}" class="help-block with-errors"><ul class="list-unstyled"><li th:each="erro : ${#fields.errors('valor')}" th:text="${erro}"></li></ul></div>
   			</div>
 			<div class="form-group">
