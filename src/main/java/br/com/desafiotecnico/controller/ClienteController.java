@@ -1,5 +1,7 @@
 package br.com.desafiotecnico.controller;
 
+import static br.com.desafiotecnico.utils.Constantes.MENSAGEM_SUCESSO;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,18 +22,21 @@ import br.com.desafiotecnico.service.ClienteService;
 @RequestMapping("/clientes")
 public class ClienteController {
 	
-	private static final String REDIRECT_INDEX = "redirect:/clientes/";
-	private static final String INDEX = "clientes/index";
-	private static final String FORM = "clientes/form";
-	private static final String REMOVER = "clientes/remover";
-	private static final String ORDEM_SERVICO = "clientes/ordem_servico";
+	public static final String ATRIBUTO_CLIENTES = "clientes";
+	public static final String ATRIBUTO_TIPOS = "tipos";
+	public static final String ATRIBUTO_CLIENTE = "cliente";
+	public static final String REDIRECT_INDEX = "redirect:/clientes/";
+	public static final String INDEX = "clientes/index";
+	public static final String FORM = "clientes/form";
+	public static final String REMOVER = "clientes/remover";
+	public static final String ORDEM_SERVICO = "clientes/ordem_servico";
 	
 	@Autowired
 	private ClienteService clienteService;
 
 	@RequestMapping(value="/", method=RequestMethod.GET)
 	public ModelAndView index(){
-		return new ModelAndView(INDEX).addObject("clientes", clienteService.buscarTodos());
+		return new ModelAndView(INDEX).addObject(ATRIBUTO_CLIENTES, clienteService.buscarTodos());
 	}
 	
 	@RequestMapping(value="/novo", method=RequestMethod.GET)
@@ -45,7 +50,7 @@ public class ClienteController {
 			return form(cliente);
 		}
 		clienteService.salvar(cliente);
-		attributes.addFlashAttribute("msgSuccess", "Cliente salvo com sucesso!");
+		attributes.addFlashAttribute(MENSAGEM_SUCESSO, "Cliente salvo com sucesso!");
 		return new ModelAndView(REDIRECT_INDEX);
 	}
 
@@ -56,23 +61,23 @@ public class ClienteController {
 
 	@RequestMapping(value="/{id}/ordens_servico", method=RequestMethod.GET)
 	public ModelAndView ordensServico(@PathVariable(value="id") Long id){
-		return new ModelAndView(ORDEM_SERVICO).addObject("cliente", clienteService.buscarPorId(id)); 
+		return new ModelAndView(ORDEM_SERVICO).addObject(ATRIBUTO_CLIENTE, clienteService.buscarPorId(id)); 
 	}
 	
 	@RequestMapping(value="/{id}/remover", method=RequestMethod.GET)
 	public ModelAndView remover(@PathVariable(value="id") Long id){
-		return new ModelAndView(REMOVER).addObject("cliente", clienteService.buscarPorId(id));
+		return new ModelAndView(REMOVER).addObject(ATRIBUTO_CLIENTE, clienteService.buscarPorId(id));
 	}
 
 	@RequestMapping(value="/{id}/remover", method=RequestMethod.DELETE)
 	public ModelAndView excluir(@PathVariable(value="id") Long id, RedirectAttributes redirectAttributes){
-		redirectAttributes.addFlashAttribute("msgSuccess", "Cliente removido com sucesso!");
+		redirectAttributes.addFlashAttribute(MENSAGEM_SUCESSO, "Cliente removido com sucesso!");
 		clienteService.remover(id);
 		return new ModelAndView(REDIRECT_INDEX);
 	}
 	
 	private ModelAndView form(Cliente cliente) {
-		return new ModelAndView(FORM).addObject("cliente", cliente).addObject("tipos", Tipo.values());
+		return new ModelAndView(FORM).addObject(ATRIBUTO_CLIENTE, cliente).addObject(ATRIBUTO_TIPOS, Tipo.values());
 	}
 	
 }

@@ -19,17 +19,19 @@ import br.com.desafiotecnico.service.ServicoService;
 @RequestMapping("/servicos")
 public class ServicoController{
 	
-	private static final String REDIRECT_INDEX = "redirect:/servicos/";
-	private static final String INDEX = "servicos/index";
-	private static final String FORM = "servicos/form";
-	private static final String REMOVER = "servicos/remover";
+	public static final String ATRIBUTO_SERVICO = "servico";
+	public static final String ATRIBUTO_SERVICOS = "servicos";
+	public static final String REDIRECT_INDEX = "redirect:/servicos/";
+	public static final String INDEX = "servicos/index";
+	public static final String FORM = "servicos/form";
+	public static final String REMOVER = "servicos/remover";
 	
 	@Autowired
 	private ServicoService servicoService;
 
 	@RequestMapping(value="/", method=RequestMethod.GET)
 	public ModelAndView index(){
-		return new ModelAndView(INDEX).addObject("servicos", servicoService.buscarTodos());
+		return new ModelAndView(INDEX).addObject(ATRIBUTO_SERVICOS, servicoService.buscarTodos());
 	}
 	
 	@RequestMapping(value="/novo", method=RequestMethod.GET)
@@ -54,7 +56,7 @@ public class ServicoController{
 	
 	@RequestMapping(value="/{id}/remover", method=RequestMethod.GET)
 	public ModelAndView remover(@PathVariable(value="id") Long id){
-		return new ModelAndView(REMOVER).addObject("servico", servicoService.buscarPorId(id));
+		return new ModelAndView(REMOVER).addObject(ATRIBUTO_SERVICO, servicoService.buscarPorId(id));
 	}
 
 	@RequestMapping(value="/{id}/remover", method=RequestMethod.DELETE)
@@ -65,7 +67,7 @@ public class ServicoController{
 	}
 	
 	private ModelAndView form(Servico servico) {
-		return new ModelAndView(FORM).addObject("servico", servico);
+		return new ModelAndView(FORM).addObject(ATRIBUTO_SERVICO, servico);
 	}
 	
 }

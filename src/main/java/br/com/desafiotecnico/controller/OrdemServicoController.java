@@ -1,5 +1,7 @@
 package br.com.desafiotecnico.controller;
 
+import static br.com.desafiotecnico.utils.Constantes.MENSAGEM_SUCESSO;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,10 +24,13 @@ import br.com.desafiotecnico.service.ServicoService;
 @RequestMapping("/ordens_servico")
 public class OrdemServicoController {
 
-	private static final String FORM = "ordens_servico/form";
-	private static final String REMOVER = "ordens_servico/remover";
-	private static final String VISUALIZAR = "ordens_servico/visualizar";
-	private static final String EXIBIR = "redirect:/ordens_servico/";
+	public static final String ATRIBUTO_SERVICOS = "servicos";
+	public static final String ATRIBUTO_CLIENTES = "clientes";
+	public static final String ATTRIBUTO_ORDEM_SERVICO = "ordemServico";
+	public static final String FORM = "ordens_servico/form";
+	public static final String REMOVER = "ordens_servico/remover";
+	public static final String VISUALIZAR = "ordens_servico/visualizar";
+	public static final String EXIBIR = "redirect:/ordens_servico/";
 
 	@Autowired
 	private OrdemServicoService ordemServicoService;
@@ -48,13 +53,13 @@ public class OrdemServicoController {
 			return form(ordemServico);
 		}
 		ordemServicoService.salvar(ordemServico);
-		attributes.addFlashAttribute("msgSuccess", "Ordem de serviço gerada com sucesso!");
+		attributes.addFlashAttribute(MENSAGEM_SUCESSO, "Ordem de serviço gerada com sucesso!");
 		return new ModelAndView(EXIBIR + ordemServico.getId());
 	}
 
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)
 	public ModelAndView visualizar(@PathVariable(value="id") Long id){
-		return new ModelAndView(VISUALIZAR).addObject("ordemServico", ordemServicoService.buscarPorId(id)); 
+		return new ModelAndView(VISUALIZAR).addObject(ATTRIBUTO_ORDEM_SERVICO, ordemServicoService.buscarPorId(id)); 
 	}
 
 	
@@ -65,35 +70,35 @@ public class OrdemServicoController {
 	
 	@RequestMapping(value="/{id}/remover", method=RequestMethod.GET)
 	public ModelAndView remover(@PathVariable(value="id") Long id){
-		return new ModelAndView(REMOVER).addObject("ordemServico", ordemServicoService.buscarPorId(id));
+		return new ModelAndView(REMOVER).addObject(ATTRIBUTO_ORDEM_SERVICO, ordemServicoService.buscarPorId(id));
 	}
 
 	@RequestMapping(value="/{id}/remover", method=RequestMethod.DELETE)
 	public ModelAndView excluir(@PathVariable(value="id") Long id, RedirectAttributes redirectAttributes){
-		redirectAttributes.addFlashAttribute("msgSuccess", "Ordem de serviço excluída com sucesso!");
+		redirectAttributes.addFlashAttribute(MENSAGEM_SUCESSO, "Ordem de serviço excluída com sucesso!");
 		ordemServicoService.remover(id);
 		return new ModelAndView("redirect:/");
 	}
 	
 	@RequestMapping(value="/{id}/pagar", method=RequestMethod.GET)
 	public ModelAndView pagar(@PathVariable(value="id") Long id, RedirectAttributes redirectAttributes){
-		redirectAttributes.addFlashAttribute("msgSuccess", "Ordem de serviço paga com sucesso!");
+		redirectAttributes.addFlashAttribute(MENSAGEM_SUCESSO, "Ordem de serviço paga com sucesso!");
 		ordemServicoService.pagar(id);
 		return new ModelAndView("redirect:/");
 	}
 	
 	@RequestMapping(value="/{id}/cancelar_pagamento", method=RequestMethod.GET)
 	public ModelAndView cancelarPagamento(@PathVariable(value="id") Long id, RedirectAttributes redirectAttributes){
-		redirectAttributes.addFlashAttribute("msgSuccess", "pagamento cancelado com sucesso!");
+		redirectAttributes.addFlashAttribute(MENSAGEM_SUCESSO, "pagamento cancelado com sucesso!");
 		ordemServicoService.cancelarPagamento(id);
 		return new ModelAndView("redirect:/");
 	}
 	
 	private ModelAndView form(OrdemServico ordemServico) {
 		return new ModelAndView(FORM)
-				.addObject("ordemServico", ordemServico)
-				.addObject("clientes", clienteService.buscarTodos())
-				.addObject("servicos", servicoService.buscarTodos());
+				.addObject(ATTRIBUTO_ORDEM_SERVICO, ordemServico)
+				.addObject(ATRIBUTO_CLIENTES, clienteService.buscarTodos())
+				.addObject(ATRIBUTO_SERVICOS, servicoService.buscarTodos());
 	}
 	
 }

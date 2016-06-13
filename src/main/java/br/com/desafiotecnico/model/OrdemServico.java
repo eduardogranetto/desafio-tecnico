@@ -90,7 +90,7 @@ public class OrdemServico extends GenericEntity{
 		return isPago() ? valorPago : new CalculadorPreco(this).calcular().getValorTotal();
 	}
 
-	public BigDecimal valorPago(){
+	public BigDecimal getValorPago(){
 		return valorPago;
 	}
 	
