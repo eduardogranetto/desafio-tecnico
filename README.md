@@ -1,4 +1,4 @@
-# desafio-tecnico
+#Desafio-tecnico
 Projeto desafio técnico
 
 #Executando:
@@ -13,6 +13,3 @@ mvn clean install && java -jar target/desafio-tecnico-0.0.1.jar --spring.datasou
 ou 
 
 java -jar target/desafio-tecnico-0.0.1.jar --spring.datasource.url=jdbc:mysql://IP:PORTA/BASE --spring.datasource.username=USUARIO_BD --spring.datasource.password=SENHA_BD
-
- 
-
