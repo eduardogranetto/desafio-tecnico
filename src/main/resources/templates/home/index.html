@@ -1,3 +1,37 @@
 <html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layout">
-	<body layout:fragment="content"></body>
+	<body layout:fragment="content">
+		
+		 <div class="page-header">
+			  <h3>Ordens de serviço <a class="btn btn-success" href="/ordens_servico/novo"><i class="glyphicon glyphicon-plus"></i> Novo</a></h3>
+		</div>
+		<table class="table table-striped table-hover ">
+		  <thead>
+		    <tr>
+		      <th>#</th>
+		      <th>Cliente</th>
+		      <th>Serviço</th>
+		      <th>Data</th>
+		      <th>Valor serviço</th>
+		      <th>Total (Com desconto)</th>
+		      <th></th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <tr th:each="ordemServico : ${ordensServico}">
+		      <td th:text="${ordemServico.id}"></td>
+		      <td><a th:href="${'/clientes/' + ordemServico.cliente.id + '/editar'}" th:text="${ordemServico.cliente.nome}"></a></td>
+		      <td><a th:href="${'/servicos/' + ordemServico.servico.id + '/editar'}" th:text="${ordemServico.servico.nome}"></a></td>
+		      <td th:text="${#temporals.format(ordemServico.inicio, 'dd/MM/yyyy') + ' à ' + #temporals.format(ordemServico.fim, 'dd/MM/yyyy')}"></td>
+		      <td></td>
+			  <td th:text="${ordemServico.total}"></td>
+		      <td>
+ 		      	 <a class="btn btn-sm btn-primary" th:href="${'/ordens_servico/' + ordemServico.id}"><i class="glyphicon glyphicon-folder-open"></i> Abrir</a>
+ 		      	 <a class="btn btn-sm btn-danger" th:href="${'/ordens_servico/' + ordemServico.id + '/remover'}"><i class="glyphicon glyphicon glyphicon-remove"></i> Remover</a>
+ 		      	 <a class="btn btn-sm btn-info" th:href="${'/ordens_servico/' + ordemServico.id + '/pagar'}"><i class="glyphicon glyphicon glyphicon-usd"></i> Pagar</a>
+		      </td>
+		    </tr>
+		  </tbody>
+		</table> 
+	
+	</body>
 </html>

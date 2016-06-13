@@ -24,6 +24,7 @@
 		      <td>
 		      	<a class="btn btn-primary" th:href="${'/clientes/' + cliente.id + '/editar'}"><i class="glyphicon glyphicon-pencil"></i> Editar</a>
 		      	<a class="btn btn-danger" th:href="${'/clientes/' + cliente.id + '/remover'}"><i class="glyphicon glyphicon-remove"></i> Remover</a>
+		      	<a class="btn btn-info" th:href="${'/ordens_servico/novo?id_cliente=' + cliente.id}"><i class="glyphicon glyphicon-plus"></i> Nova Ordem de Serviço</a>
 		      </td>
 		    </tr>
 		  </tbody>
