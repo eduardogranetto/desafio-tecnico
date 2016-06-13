@@ -33,7 +33,7 @@ public abstract class GenericEntity implements Serializable{
 	@Column(name="data_atualizacao")
 	@JsonFormat(pattern = "dd/MM/yyyy HH:mm")
 	private LocalDateTime dataAtualizacao;
-
+	
 	public Long getId() {
 		return id;
 	}

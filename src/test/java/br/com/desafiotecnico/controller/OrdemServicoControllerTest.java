@@ -47,7 +47,6 @@ public class OrdemServicoControllerTest {
 	private static final String URL_REDIRECT_SALVAR = "/ordens_servico/null";
 	private static final String URL_REDIRECT_HOME = "/";
 	private static final Long ID_ORDEM_SERVICO = Long.valueOf(1);
-	
 
 	private MockMvc mockMvc;
 
@@ -133,7 +132,6 @@ public class OrdemServicoControllerTest {
 		.andExpect(status().is3xxRedirection())
 		.andExpect(redirectedUrl(URL_REDIRECT_HOME))
 		.andExpect(MockMvcResultMatchers.flash().attributeExists(MENSAGEM_SUCESSO));
-		
 	}
 
 	@Test

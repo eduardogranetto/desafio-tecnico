@@ -1,7 +1,7 @@
 <html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layout">
 	<body layout:fragment="content">
 		 <div class="page-header">
-			  <h3>Ordens de Serviço do cliente <a class="btn btn-success" th:href="'/ordens_servico/novo?id_cliente=' + ${cliente.id}"><i class="glyphicon glyphicon-plus"></i> Nova</a></h3>
+			  <h3>Ordens de ServiÃ§o do cliente <a class="btn btn-success" th:href="'/ordens_servico/novo?id_cliente=' + ${cliente.id}"><i class="glyphicon glyphicon-plus"></i> Nova</a></h3>
 		</div>
 		<dl>
 			<dt>Nome:</dt>
@@ -11,10 +11,10 @@
 		  <thead>
 		    <tr>
 		      <th>#</th>
-		      <th>Serviço</th>
+		      <th>ServiÃ§o</th>
 		      <th>Data</th>
 		      <th>Dias para o termino</th>
-		      <th>Valor serviço</th>
+		      <th>Valor serviÃ§o</th>
 		      <th>Total (Com desconto)</th>
 		      <th>Pago</th>
 		      <th></th>
@@ -24,11 +24,11 @@
 		    <tr th:each="ordemServico : ${cliente.ordensServico}">
 		      <td th:text="${ordemServico.id}"></td>
 		      <td><a th:href="${'/servicos/' + ordemServico.servico.id + '/editar'}" th:text="${ordemServico.servico.nome}"></a></td>
-		      <td th:text="${#temporals.format(ordemServico.inicio, 'dd/MM/yyyy') + ' à  ' + #temporals.format(ordemServico.fim, 'dd/MM/yyyy')}"></td>
+		      <td th:text="${#temporals.format(ordemServico.inicio, 'dd/MM/yyyy') + ' Ã  ' + #temporals.format(ordemServico.fim, 'dd/MM/yyyy')}"></td>
 		      <td th:text="${ordemServico.diasParaTermino}"></td>
 		      <td th:text="${ordemServico.servico.valor}"></td>
 			  <td th:text="${ordemServico.total}"></td>
-			  <td th:text="${ordemServico.pago ? 'Sim' : 'Não'}"></td>
+			  <td th:text="${ordemServico.pago ? 'Sim' : 'NÃ£o'}"></td>
 		      <td>
  		      	 <a class="btn btn-sm btn-primary" th:href="${'/ordens_servico/' + ordemServico.id}"><i class="glyphicon glyphicon-folder-open"></i> Abrir</a>
  		      	 <a class="btn btn-sm btn-danger" th:href="${'/ordens_servico/' + ordemServico.id + '/remover'}"><i class="glyphicon glyphicon glyphicon-remove"></i> Remover</a>

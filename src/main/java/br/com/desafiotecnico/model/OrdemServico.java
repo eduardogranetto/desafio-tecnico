@@ -10,6 +10,7 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -25,21 +26,21 @@ public class OrdemServico extends GenericEntity{
 	private static final String PT_BR_DATE = "dd/MM/yyyy";
 	
 	@Column
-	@NotNull
+	@NotNull(message="Data de Início do serviço não pode ser vazia!")
 	@DateTimeFormat(pattern=PT_BR_DATE)
 	private LocalDate inicio;
 	
 	@Column
-	@NotNull
+	@NotNull(message="Data de finalização do serviço não pode ser vazia!")
 	@DateTimeFormat(pattern=PT_BR_DATE)
 	private LocalDate fim;
 	
-	@NotNull
+	@NotNull(message="Código do serviço não pode ser vazio!")
 	@JoinColumn(name="id_servico", referencedColumnName="id")
 	@ManyToOne(fetch=FetchType.LAZY)
 	private Servico servico;
 
-	@NotNull
+	@NotNull(message="Código do cliente não pode ser vazio!")
 	@JoinColumn(name="id_cliente", referencedColumnName="id")
 	@ManyToOne(fetch=FetchType.LAZY)
 	private Cliente cliente;
@@ -49,7 +50,12 @@ public class OrdemServico extends GenericEntity{
 	
 	@Column
 	private Boolean pago = Boolean.FALSE;
-
+	
+	@AssertTrue(message="Data de término do serviço deve ser maior ou igual à data de início!")
+	public boolean isInicioPeriodoValido(){
+		return fim!=null && inicio != null && (inicio.isBefore(fim) || inicio.isEqual(fim));
+	}
+	
 	public LocalDate getInicio() {
 		return inicio;
 	}

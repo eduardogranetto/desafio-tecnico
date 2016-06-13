@@ -4,6 +4,9 @@
 			  <h3>Ordem de Serviço</h3>
 		</div>
 		<form method="post" th:action="@{/ordens_servico/salvar}" th:object="${ordemServico}">
+			<ul>
+  				<li th:each="err : ${#fields.errors('*')}" th:text="${err}" />
+			</ul>
 			<input type="hidden" th:field="*{id}" />
 			<div class="form-group">
 				<label for="tipo">Cliente:</label>

@@ -8,7 +8,7 @@
 		    <tr>
 		      <th>#</th>
 		      <th>Cliente</th>
-		      <th>Serviiço</th>
+		      <th>Serviço</th>
 		      <th>Data</th>
 		      <th>Dias para o termino</th>
 		      <th>Valor serviços</th>
@@ -22,11 +22,11 @@
 		      <td th:text="${ordemServico.id}"></td>
 		      <td><a th:href="${'/clientes/' + ordemServico.cliente.id + '/editar'}" th:text="${ordemServico.cliente.nome}"></a></td>
 		      <td><a th:href="${'/servicos/' + ordemServico.servico.id + '/editar'}" th:text="${ordemServico.servico.nome}"></a></td>
-		      <td th:text="${#temporals.format(ordemServico.inicio, 'dd/MM/yyyy') + ' � ' + #temporals.format(ordemServico.fim, 'dd/MM/yyyy')}"></td>
+		      <td th:text="${#temporals.format(ordemServico.inicio, 'dd/MM/yyyy') + ' à ' + #temporals.format(ordemServico.fim, 'dd/MM/yyyy')}"></td>
 		      <td th:text="${ordemServico.diasParaTermino}"></td>
 		      <td th:text="${ordemServico.servico.valor}"></td>
 			  <td th:text="${ordemServico.total}"></td>
-			  <td th:text="${ordemServico.pago ? 'Sim' : 'N�o'}"></td>
+			  <td th:text="${ordemServico.pago ? 'Sim' : 'Não'}"></td>
 		      <td>
  		      	 <a class="btn btn-sm btn-primary" th:href="${'/ordens_servico/' + ordemServico.id}"><i class="glyphicon glyphicon-folder-open"></i> Abrir</a>
  		      	 <a class="btn btn-sm btn-danger" th:href="${'/ordens_servico/' + ordemServico.id + '/remover'}"><i class="glyphicon glyphicon glyphicon-remove"></i> Remover</a>

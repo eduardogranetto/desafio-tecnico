@@ -17,7 +17,7 @@ import org.hibernate.validator.constraints.NotBlank;
 public class Cliente extends GenericEntity{
 
 	private static final long serialVersionUID = 8729550765031837999L;
-
+	
 	@NotBlank
 	@Length(min=3, max=50)
 	@Column(nullable=false, length=50)
@@ -26,7 +26,7 @@ public class Cliente extends GenericEntity{
 	@Column
 	@Enumerated(EnumType.STRING)
 	private Tipo tipo;
-	
+
 	@OneToMany(mappedBy="cliente")
 	private List<OrdemServico> ordensServico;
 	
