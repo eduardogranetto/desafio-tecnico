@@ -1,4 +1,7 @@
+[![Build Status](https://travis-ci.org/eduardogranetto/desafio-tecnico.svg?branch=master)](https://travis-ci.org/eduardogranetto/desafio-tecnico)
+
 [![Coverage Status](https://coveralls.io/repos/github/eduardogranetto/desafio-tecnico/badge.svg?branch=master)](https://coveralls.io/github/eduardogranetto/desafio-tecnico?branch=master)
+
 
 #Desafio-tecnico
 Projeto desafio técnico
