@@ -6,11 +6,6 @@
 #Desafio-tecnico
 Projeto desafio técnico
 
-##No Ar
-Existe uma versão no ar em:
-
-[https://desafio-tecnico.herokuapp.com/](https://desafio-tecnico.herokuapp.com/)
-
 ##Executando:
 
 ###Dependencias:
