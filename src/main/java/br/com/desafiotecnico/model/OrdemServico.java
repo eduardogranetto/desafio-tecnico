@@ -1,5 +1,7 @@
 package br.com.desafiotecnico.model;
 
+import static java.time.LocalDate.now;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
@@ -101,7 +103,10 @@ public class OrdemServico extends GenericEntity{
 	}
 	
 	public Long getDiasParaTermino(){
-		Long diasParaTermino = inicio.until(fim, ChronoUnit.DAYS);
+		if(now().isBefore(inicio)){
+			return inicio.until(fim, ChronoUnit.DAYS);
+		}
+		Long diasParaTermino = now().until(fim, ChronoUnit.DAYS);
 		return diasParaTermino >= 0 ? diasParaTermino : 0;
 	}
 

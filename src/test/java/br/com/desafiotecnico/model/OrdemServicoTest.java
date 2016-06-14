@@ -13,7 +13,11 @@ import org.junit.Test;
 public class OrdemServicoTest {
 
 	private static final Long QUANTIDADE_DIAS = Long.valueOf(11);
+	private static final Long QUANTIDADE_DIAS_ZERADO = Long.valueOf(0);
+	private static final Long QUANTIDADE_DIAS_FALTANDO_CONCLUIR = Long.valueOf(10);
+	
 	private static final LocalDate ONZE_DIAS_PARA_FRENTE = LocalDate.now().plusDays(QUANTIDADE_DIAS);
+	private static final LocalDate ONTEM = LocalDate.now().minusDays(-1);
 
 	private static final BigDecimal VALOR_SERVICO = BigDecimal.valueOf(100);
 
@@ -33,13 +37,16 @@ public class OrdemServicoTest {
 		servico.setValor(VALOR_SERVICO);
 	}
 	
-	private OrdemServico mock(Cliente cliente, LocalDate fim){
+	private OrdemServico mock(Cliente cliente, LocalDate inicio, LocalDate fim){
 		OrdemServico ordemServico = new OrdemServico();
 		ordemServico.setCliente(cliente);
 		ordemServico.setServico(servico);
-		ordemServico.setInicio(LocalDate.now());
+		ordemServico.setInicio(inicio);
 		ordemServico.setFim(fim);
 		return ordemServico;
+	}
+	private OrdemServico mock(Cliente cliente, LocalDate fim){
+		return mock(cliente, now(), fim);
 	}
 	
 	@Test
@@ -86,5 +93,17 @@ public class OrdemServicoTest {
 		OrdemServico ordemServico = mock(clienteOuro, ONZE_DIAS_PARA_FRENTE);
 		assertThat(ordemServico.getDiasParaTermino(), is(QUANTIDADE_DIAS));
 	}
-	
+
+	@Test
+	public void deveRetornarAQuantidadeDeDiasZeradaParaDataPosteriorAoEncerramento(){
+		OrdemServico ordemServico = mock(clienteOuro, ONTEM, ONTEM);
+		assertThat(ordemServico.getDiasParaTermino(), is(QUANTIDADE_DIAS_ZERADO));
+	}
+
+	@Test
+	public void deveRetornarAQuantidadeDeDiasFaltantseParaEncerramento(){
+		OrdemServico ordemServico = mock(clienteOuro, ONTEM, ONZE_DIAS_PARA_FRENTE);
+		assertThat(ordemServico.getDiasParaTermino(), is(QUANTIDADE_DIAS_FALTANDO_CONCLUIR));
+	}
+
 }
