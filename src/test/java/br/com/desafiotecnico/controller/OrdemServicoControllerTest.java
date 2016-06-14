@@ -5,6 +5,7 @@ import static br.com.desafiotecnico.controller.OrdemServicoController.ATRIBUTO_S
 import static br.com.desafiotecnico.controller.OrdemServicoController.ATTRIBUTO_ORDEM_SERVICO;
 import static br.com.desafiotecnico.controller.OrdemServicoController.FORM;
 import static br.com.desafiotecnico.controller.OrdemServicoController.REMOVER;
+import static br.com.desafiotecnico.controller.OrdemServicoController.VISUALIZAR;
 import static br.com.desafiotecnico.utils.Constantes.MENSAGEM_SUCESSO;
 import static java.text.MessageFormat.format;
 import static java.util.Arrays.asList;
@@ -140,5 +141,15 @@ public class OrdemServicoControllerTest {
 		.andExpect(status().is3xxRedirection())
 		.andExpect(redirectedUrl(URL_REDIRECT_HOME));
 	}
+	
+	@Test
+	public void deveRetornarPaginaParaVisualizarOrdemServico() throws Exception {
+		when(ordemServicoService.criar(null, null)).thenReturn(mock(OrdemServico.class));
+		mockMvc.perform(get(format("/ordens_servico/{0}", ID_ORDEM_SERVICO)))
+		.andExpect(status().isOk())
+		.andExpect(view().name(VISUALIZAR))
+		.andExpect(model().attributeExists(ATTRIBUTO_ORDEM_SERVICO));
+	}
+
 	
 }
