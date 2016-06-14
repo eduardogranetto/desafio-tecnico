@@ -1,1 +1,1 @@
-web: java -Dserver.port=$PORT -jar  target/desafio-tecnico-0.0.1.jar --spring.config.name=heroku
+web: mvn clean install && java -Dserver.port=$PORT -jar  target/desafio-tecnico-0.0.1.jar --spring.config.name=heroku
