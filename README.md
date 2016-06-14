@@ -6,12 +6,16 @@
 #Desafio-tecnico
 Projeto desafio técnico
 
+##No AR
+[https://desafio-tecnico.herokuapp.com](https://desafio-tecnico.herokuapp.com)
+
 ##Executando:
 
-###Dependencias:
+##Dependencias:
 
 -Java 8
 -Maven 3
+
 
 ##Rodando
 
