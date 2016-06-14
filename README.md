@@ -1,15 +1,29 @@
 #Desafio-tecnico
 Projeto desafio técnico
 
-#Executando:
+##No Ar
+Existe uma versão no ar em:
 
--Dependencias:
+[https://desafio-tecnico.herokuapp.com/](https://desafio-tecnico.herokuapp.com/)
+
+##Executando:
+
+###Dependencias:
 
 -Java 8
 -Maven 3
 
-mvn clean install && java -jar target/desafio-tecnico-0.0.1.jar --spring.datasource.url=jdbc:mysql://IP:PORTA/BASE --spring.datasource.username=USUARIO_BD --spring.datasource.password=SENHA_BD
+##Rodando
+
+```bash
+       
+      mvn clean install && java -jar target/desafio-tecnico-0.0.1.jar --spring.datasource.url=jdbc:mysql://IP:PORTA/BASE --spring.datasource.username=USUARIO_BD --spring.datasource.password=SENHA_BD
+```
 
 ou 
 
-java -jar target/desafio-tecnico-0.0.1.jar --spring.datasource.url=jdbc:mysql://IP:PORTA/BASE --spring.datasource.username=USUARIO_BD --spring.datasource.password=SENHA_BD
+
+```bash
+       
+      java -jar target/desafio-tecnico-0.0.1.jar --spring.datasource.url=jdbc:mysql://IP:PORTA/BASE --spring.datasource.username=USUARIO_BD --spring.datasource.password=SENHA_BD
+```
