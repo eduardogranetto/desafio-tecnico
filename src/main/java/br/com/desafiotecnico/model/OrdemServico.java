@@ -101,7 +101,8 @@ public class OrdemServico extends GenericEntity{
 	}
 	
 	public Long getDiasParaTermino(){
-		return inicio.until(fim, ChronoUnit.DAYS);
+		Long diasParaTermino = inicio.until(fim, ChronoUnit.DAYS);
+		return diasParaTermino >= 0 ? diasParaTermino : 0;
 	}
 
 	public void cancelarPagamento() {
