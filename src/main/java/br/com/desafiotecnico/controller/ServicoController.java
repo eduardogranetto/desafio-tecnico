@@ -18,6 +18,9 @@ public class ServicoController extends CRUDController<Servico>{
 	public static final String INDEX = "servicos/index";
 	public static final String FORM = "servicos/form";
 	public static final String REMOVER = "servicos/remover";
+	private static final String MENSAGEM_SALVO = "Serviço salvo com sucesso!";
+	private static final String MENSAGEM_REMOVIDO = "Serviço removido com sucesso!";
+
 	
 	@Autowired
 	private ServicoService servicoService;
@@ -65,6 +68,16 @@ public class ServicoController extends CRUDController<Servico>{
 	@Override
 	Servico criarInstancia() {
 		return new Servico();
+	}
+
+	@Override
+	String getMensagemSalvo() {
+		return MENSAGEM_SALVO;
+	}
+
+	@Override
+	String getMensagemRemovido() {
+		return MENSAGEM_REMOVIDO;
 	}
 	
 }

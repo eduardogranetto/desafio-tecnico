@@ -24,6 +24,8 @@ public class ClienteController extends CRUDController<Cliente>{
 	public static final String FORM = "clientes/form";
 	public static final String REMOVER = "clientes/remover";
 	public static final String ORDEM_SERVICO = "clientes/ordem_servico";
+	private static final String MENSAGEM_SALVO = "Cliente salvo com sucesso!";
+	private static final String MENSAGEM_REMOVIDO = "Cliente removido com sucesso!";
 	
 	@Autowired
 	private ClienteService clienteService;
@@ -80,7 +82,17 @@ public class ClienteController extends CRUDController<Cliente>{
 	
 	@RequestMapping(value="/{id}/ordens_servico", method=RequestMethod.GET)
 	public ModelAndView ordensServico(@PathVariable(value="id") Long id){
-		return new ModelAndView(ORDEM_SERVICO).addObject("cliente", clienteService.buscarPorId(id)); 
+		return new ModelAndView(ORDEM_SERVICO).addObject(ATRIBUTO_CLIENTE, clienteService.buscarPorId(id)); 
+	}
+
+	@Override
+	String getMensagemSalvo() {
+		return MENSAGEM_SALVO;
+	}
+
+	@Override
+	String getMensagemRemovido() {
+		return MENSAGEM_REMOVIDO;
 	}
 	
 }

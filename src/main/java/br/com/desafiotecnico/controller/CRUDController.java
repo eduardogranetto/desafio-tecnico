@@ -29,6 +29,8 @@ public abstract class CRUDController<T extends GenericEntity> {
 	
 	abstract String getUrlRedirectAfterSave();
 	abstract String getUrlRedirectAfterRemove();
+	abstract String getMensagemSalvo();
+	abstract String getMensagemRemovido();
 	
 	abstract T criarInstancia();
 	
@@ -52,7 +54,7 @@ public abstract class CRUDController<T extends GenericEntity> {
 			return form(entidade);
 		}
 		getService().salvar(entidade);
-		attributes.addFlashAttribute(MENSAGEM_SUCESSO, "Cliente salvo com sucesso!");
+		attributes.addFlashAttribute(MENSAGEM_SUCESSO, getMensagemSalvo());
 		return new ModelAndView(getUrlRedirectAfterSave());
 	}
 
@@ -68,7 +70,7 @@ public abstract class CRUDController<T extends GenericEntity> {
 
 	@RequestMapping(value="/{id}/remover", method=RequestMethod.DELETE)
 	public ModelAndView excluir(@PathVariable(value="id") Long id, RedirectAttributes redirectAttributes){
-		redirectAttributes.addFlashAttribute(MENSAGEM_SUCESSO, "Cliente removido com sucesso!");
+		redirectAttributes.addFlashAttribute(MENSAGEM_SUCESSO, getMensagemRemovido());
 		getService().remover(id);
 		return new ModelAndView(getUrlRedirectAfterRemove());
 	}
