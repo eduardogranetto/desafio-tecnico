@@ -1,0 +1,39 @@
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layout">
+	<body layout:fragment="content">
+		 <div class="page-header">
+			  <h3>Ordem de Serviço</h3>
+		</div>
+		<form method="post" th:action="@{/ordens_servico/salvar}" th:object="${ordemServico}">
+			<ul>
+  				<li th:each="err : ${#fields.errors('*')}" th:text="${err}" />
+			</ul>
+			<input type="hidden" th:field="*{id}" />
+			<div class="form-group">
+				<label for="tipo">Cliente:</label>
+    			<select class="form-control" th:field="*{cliente.id}">
+ 					<option th:each="cliente : ${clientes}" th:value="${cliente.id}" th:text="${cliente.nome}"></option>
+				</select>
+  			</div>
+			<div class="form-group">
+				<label for="tipo">Servico:</label>
+    			<select class="form-control" th:field="*{servico.id}">
+ 					<option th:each="servico : ${servicos}" th:value="${servico.id}" th:text="${servico.nome}"></option>
+				</select>
+  			</div>
+			<div th:class="${'form-group ' + (#fields.hasErrors('inicio') ? 'has-error has-danger' : '' ) }">
+				<label for="nome">Data Início:</label>
+    			<input type="text" class="form-control datepicker" pattern="\d{1,2}/\d{1,2}/\d{4}" id="inicio" th:field="*{inicio}" />
+    			<div th:if="${#fields.hasErrors('inicio')}" class="help-block with-errors"><ul class="list-unstyled"><li th:each="erro : ${#fields.errors('inicio')}" th:text="${erro}"></li></ul></div>
+  			</div>
+			<div th:class="${'form-group ' + (#fields.hasErrors('fim') ? 'has-error has-danger' : '' ) }">
+				<label for="nome">Data Fim:</label>
+    			<input type="text" pattern="\d{1,2}/\d{1,2}/\d{4}" class="form-control datepicker" id="fim" th:field="*{fim}" />
+    			<div th:if="${#fields.hasErrors('fim')}" class="help-block with-errors"><ul class="list-unstyled"><li th:each="erro : ${#fields.errors('fim')}" th:text="${erro}"></li></ul></div>
+  			</div>
+			<div class="form-group">
+				<button type="submit" class="btn btn-success"><i class="glyphicon glyphicon-ok"></i> Salvar</button>
+				<a class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i> Cancelar</a>
+			</div>
+		</form>
+	</body>
+</html>

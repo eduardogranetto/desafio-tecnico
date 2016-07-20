@@ -1,0 +1,67 @@
+<html lang="pt-br" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<title>Desafio Técnico | Eduardo Antonio Granetto Junior</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" th:href="@{/resources/css/bootstrap.min.css}" media="screen" />
+<link rel="stylesheet" th:href="@{/resources/css/custom.min.css}" />
+</head>
+<body>
+	<div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="../" class="navbar-brand">Desafio Técnico</a>
+          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar-main">
+          <ul class="nav navbar-nav">
+            <li>
+              <a href="/clientes/">Clientes</a>
+            </li>
+           	<li class="dropdown">
+              <a aria-expanded="false" class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">Serviços <span class="caret"></span></a>
+              <ul class="dropdown-menu" aria-labelledby="themes">
+                <li><a href="/servicos/">Página</a></li>
+                <li class="divider"></li>
+                <li><a target="_blank" href="/api/servicos">WS</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="/">Ordens de Serviços</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<div th:if="${msgSuccess != null}" class="page-header">
+					<div class="alert alert-success">
+  						<strong>Atenção! </strong><span th:text="${msgSuccess}"></span>
+					</div>			
+				</div>
+				<div layout:fragment="content"></div>
+			</div>
+		</div>
+	</div>
+	<div>
+	</div>
+	<script th:src="@{/resources/js/jquery-2.2.3.min.js}"></script>
+	<script th:src="@{/resources/js/bootstrap.min.js}"></script>
+	<script th:src="@{/resources/js/bootstrap-notify.min.js}"></script>
+	<script th:src="@{/resources/js/bootstrap-datepicker.min.js}"></script>
+	<script th:src="@{/resources/js/jquery.mask.min.js}"></script>
+	<script th:src="@{/resources/js/components.js}"></script>
+	<script th:src="@{/resources/js/custom.js}"></script>
+	<script type="text/javascript">
+		$(function(){
+			Config.load_components();
+		});
+	</script>
+</body>
+</html>
