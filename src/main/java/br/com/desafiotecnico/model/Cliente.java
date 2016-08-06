@@ -12,6 +12,8 @@ import javax.persistence.Table;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotBlank;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="clientes")
 public class Cliente extends GenericEntity{
@@ -26,7 +28,8 @@ public class Cliente extends GenericEntity{
 	@Column
 	@Enumerated(EnumType.STRING)
 	private Tipo tipo;
-
+	
+	@JsonIgnore
 	@OneToMany(mappedBy="cliente")
 	private List<OrdemServico> ordensServico;
 	

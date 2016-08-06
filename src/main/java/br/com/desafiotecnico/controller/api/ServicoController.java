@@ -19,9 +19,6 @@ public class ServicoController {
 	@Autowired
 	private ServicoService servicoService;
 	
-	@Autowired
-	private ServicoClient servicoClient;
-	
 	@ResponseBody
 	@RequestMapping(value="/servicos", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public List<Servico> listar(){
