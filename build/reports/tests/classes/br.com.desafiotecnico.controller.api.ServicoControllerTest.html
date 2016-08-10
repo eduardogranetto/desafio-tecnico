@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.244s</div>
+<div class="counter">0.370s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,7 +79,7 @@
 </thead>
 <tr>
 <td class="success">deveRetornarListaDeServicos</td>
-<td>0.244s</td>
+<td>0.370s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -87,47 +87,46 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>22:32:10.815 [Test worker] DEBUG org.springframework.core.env.StandardEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
-22:32:10.817 [Test worker] DEBUG org.springframework.core.env.StandardEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
-22:32:10.818 [Test worker] DEBUG org.springframework.core.env.StandardEnvironment - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
-22:32:10.828 [Test worker] DEBUG org.springframework.test.web.servlet.setup.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Looking for request mappings in application context: org.springframework.test.web.servlet.setup.StubWebApplicationContext@5c526138
-22:32:10.836 [Test worker] DEBUG org.springframework.test.web.servlet.setup.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - 2 request handler methods found on class br.com.desafiotecnico.controller.api.ServicoController: {public java.util.List br.com.desafiotecnico.controller.api.ServicoController.listar()={[/api/servicos],methods=[GET],produces=[application/json;charset=UTF-8]}, public java.util.List br.com.desafiotecnico.controller.api.ServicoController.client()={[/api/client],methods=[GET],produces=[application/json;charset=UTF-8]}}
-22:32:10.837 [Test worker] INFO org.springframework.test.web.servlet.setup.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Mapped &quot;{[/api/servicos],methods=[GET],produces=[application/json;charset=UTF-8]}&quot; onto public java.util.List&lt;br.com.desafiotecnico.model.Servico&gt; br.com.desafiotecnico.controller.api.ServicoController.listar()
-22:32:10.838 [Test worker] INFO org.springframework.test.web.servlet.setup.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Mapped &quot;{[/api/client],methods=[GET],produces=[application/json;charset=UTF-8]}&quot; onto public java.util.List&lt;br.com.desafiotecnico.model.Servico&gt; br.com.desafiotecnico.controller.api.ServicoController.client()
-22:32:10.852 [Test worker] DEBUG org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver - Found javax.persistence.Persistence on classpath containing 'getPersistenceUtil'. Assuming JPA 2 environment. Trying to instantiate JPA aware TraversableResolver
-22:32:10.852 [Test worker] DEBUG org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver - Instantiated JPA aware TraversableResolver of type org.hibernate.validator.internal.engine.resolver.JPATraversableResolver.
-22:32:10.853 [Test worker] DEBUG org.hibernate.validator.internal.engine.ConfigurationImpl - Setting custom MessageInterpolator of type org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator
-22:32:10.853 [Test worker] DEBUG org.hibernate.validator.internal.engine.ConfigurationImpl - Setting custom ParameterNameProvider of type com.sun.proxy.$Proxy23
-22:32:10.853 [Test worker] DEBUG org.hibernate.validator.internal.xml.ValidationXmlParser - Trying to load META-INF/validation.xml for XML based Validator configuration.
-22:32:10.853 [Test worker] DEBUG org.hibernate.validator.internal.xml.ResourceLoaderHelper - Trying to load META-INF/validation.xml via TCCL
-22:32:10.854 [Test worker] DEBUG org.hibernate.validator.internal.xml.ResourceLoaderHelper - Trying to load META-INF/validation.xml via Hibernate Validator's class loader
-22:32:10.854 [Test worker] DEBUG org.hibernate.validator.internal.xml.ValidationXmlParser - No META-INF/validation.xml found. Using annotation based configuration only.
-22:32:10.857 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@5c526138
-22:32:10.864 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Looking for exception mappings: org.springframework.test.web.servlet.setup.StubWebApplicationContext@5c526138
-22:32:10.865 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Initializing servlet ''
-22:32:10.866 [Test worker] DEBUG org.springframework.web.context.support.StandardServletEnvironment - Adding [servletConfigInitParams] PropertySource with lowest search precedence
-22:32:10.866 [Test worker] DEBUG org.springframework.web.context.support.StandardServletEnvironment - Adding [servletContextInitParams] PropertySource with lowest search precedence
-22:32:10.866 [Test worker] DEBUG org.springframework.web.context.support.StandardServletEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
-22:32:10.866 [Test worker] DEBUG org.springframework.web.context.support.StandardServletEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
-22:32:10.866 [Test worker] DEBUG org.springframework.web.context.support.StandardServletEnvironment - Initialized StandardServletEnvironment with PropertySources [servletConfigInitParams,servletContextInitParams,systemProperties,systemEnvironment]
-22:32:10.866 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
-22:32:10.866 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
-22:32:10.866 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Unable to locate MultipartResolver with name 'multipartResolver': no multipart request handling provided
-22:32:10.866 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Using LocaleResolver [org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver@106a39f6]
-22:32:10.866 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Using ThemeResolver [org.springframework.web.servlet.theme.FixedThemeResolver@38b67486]
-22:32:10.866 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Using RequestToViewNameTranslator [org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@6eac85c2]
-22:32:10.866 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Using FlashMapManager [org.springframework.web.servlet.support.SessionFlashMapManager@8fb82b6]
-22:32:10.866 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Published WebApplicationContext of servlet '' as ServletContext attribute with name [org.springframework.web.servlet.FrameworkServlet.CONTEXT.]
-22:32:10.866 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 0 ms
-22:32:10.866 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Servlet '' configured successfully
-22:32:10.867 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - DispatcherServlet with name '' processing GET request for [/api/servicos]
-22:32:10.867 [Test worker] DEBUG org.springframework.test.web.servlet.setup.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Looking up handler method for path /api/servicos
-22:32:10.868 [Test worker] DEBUG org.springframework.test.web.servlet.setup.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Returning handler method [public java.util.List&lt;br.com.desafiotecnico.model.Servico&gt; br.com.desafiotecnico.controller.api.ServicoController.listar()]
-22:32:10.868 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Last-Modified value for [/api/servicos] is: -1
-22:32:10.967 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Written [[br.com.desafiotecnico.model.Servico@306f66a3]] as &quot;application/json;charset=UTF-8&quot; using [org.springframework.http.converter.json.MappingJackson2HttpMessageConverter@eca74c7]
-22:32:10.967 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Null ModelAndView returned to DispatcherServlet with name '': assuming HandlerAdapter completed request handling
-22:32:10.967 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Successfully completed request
-22:32:11.051 [Test worker] DEBUG com.jayway.jsonpath.internal.CompiledPath - Evaluating path: $[0]['nome']
+<pre>23:40:59.412 [Test worker] DEBUG org.springframework.core.env.StandardEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
+23:40:59.413 [Test worker] DEBUG org.springframework.core.env.StandardEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
+23:40:59.413 [Test worker] DEBUG org.springframework.core.env.StandardEnvironment - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+23:40:59.418 [Test worker] DEBUG org.springframework.test.web.servlet.setup.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Looking for request mappings in application context: org.springframework.test.web.servlet.setup.StubWebApplicationContext@31ec5f7a
+23:40:59.429 [Test worker] DEBUG org.springframework.test.web.servlet.setup.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - 1 request handler methods found on class br.com.desafiotecnico.controller.api.ServicoController: {public java.util.List br.com.desafiotecnico.controller.api.ServicoController.listar()={[/api/servicos],methods=[GET],produces=[application/json;charset=UTF-8]}}
+23:40:59.430 [Test worker] INFO org.springframework.test.web.servlet.setup.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Mapped &quot;{[/api/servicos],methods=[GET],produces=[application/json;charset=UTF-8]}&quot; onto public java.util.List&lt;br.com.desafiotecnico.model.Servico&gt; br.com.desafiotecnico.controller.api.ServicoController.listar()
+23:40:59.449 [Test worker] DEBUG org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver - Found javax.persistence.Persistence on classpath containing 'getPersistenceUtil'. Assuming JPA 2 environment. Trying to instantiate JPA aware TraversableResolver
+23:40:59.450 [Test worker] DEBUG org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver - Instantiated JPA aware TraversableResolver of type org.hibernate.validator.internal.engine.resolver.JPATraversableResolver.
+23:40:59.451 [Test worker] DEBUG org.hibernate.validator.internal.engine.ConfigurationImpl - Setting custom MessageInterpolator of type org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator
+23:40:59.451 [Test worker] DEBUG org.hibernate.validator.internal.engine.ConfigurationImpl - Setting custom ParameterNameProvider of type com.sun.proxy.$Proxy23
+23:40:59.451 [Test worker] DEBUG org.hibernate.validator.internal.xml.ValidationXmlParser - Trying to load META-INF/validation.xml for XML based Validator configuration.
+23:40:59.452 [Test worker] DEBUG org.hibernate.validator.internal.xml.ResourceLoaderHelper - Trying to load META-INF/validation.xml via TCCL
+23:40:59.454 [Test worker] DEBUG org.hibernate.validator.internal.xml.ResourceLoaderHelper - Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+23:40:59.456 [Test worker] DEBUG org.hibernate.validator.internal.xml.ValidationXmlParser - No META-INF/validation.xml found. Using annotation based configuration only.
+23:40:59.459 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@31ec5f7a
+23:40:59.464 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Looking for exception mappings: org.springframework.test.web.servlet.setup.StubWebApplicationContext@31ec5f7a
+23:40:59.465 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Initializing servlet ''
+23:40:59.466 [Test worker] DEBUG org.springframework.web.context.support.StandardServletEnvironment - Adding [servletConfigInitParams] PropertySource with lowest search precedence
+23:40:59.466 [Test worker] DEBUG org.springframework.web.context.support.StandardServletEnvironment - Adding [servletContextInitParams] PropertySource with lowest search precedence
+23:40:59.466 [Test worker] DEBUG org.springframework.web.context.support.StandardServletEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
+23:40:59.466 [Test worker] DEBUG org.springframework.web.context.support.StandardServletEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
+23:40:59.466 [Test worker] DEBUG org.springframework.web.context.support.StandardServletEnvironment - Initialized StandardServletEnvironment with PropertySources [servletConfigInitParams,servletContextInitParams,systemProperties,systemEnvironment]
+23:40:59.466 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
+23:40:59.466 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
+23:40:59.466 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Unable to locate MultipartResolver with name 'multipartResolver': no multipart request handling provided
+23:40:59.466 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Using LocaleResolver [org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver@3bd4039]
+23:40:59.467 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Using ThemeResolver [org.springframework.web.servlet.theme.FixedThemeResolver@a4708eb]
+23:40:59.467 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Using RequestToViewNameTranslator [org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@34885881]
+23:40:59.467 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Using FlashMapManager [org.springframework.web.servlet.support.SessionFlashMapManager@4d66a6f0]
+23:40:59.467 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Published WebApplicationContext of servlet '' as ServletContext attribute with name [org.springframework.web.servlet.FrameworkServlet.CONTEXT.]
+23:40:59.467 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 1 ms
+23:40:59.467 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Servlet '' configured successfully
+23:40:59.467 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - DispatcherServlet with name '' processing GET request for [/api/servicos]
+23:40:59.467 [Test worker] DEBUG org.springframework.test.web.servlet.setup.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Looking up handler method for path /api/servicos
+23:40:59.468 [Test worker] DEBUG org.springframework.test.web.servlet.setup.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Returning handler method [public java.util.List&lt;br.com.desafiotecnico.model.Servico&gt; br.com.desafiotecnico.controller.api.ServicoController.listar()]
+23:40:59.468 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Last-Modified value for [/api/servicos] is: -1
+23:40:59.627 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Written [[br.com.desafiotecnico.model.Servico@153958b7]] as &quot;application/json;charset=UTF-8&quot; using [org.springframework.http.converter.json.MappingJackson2HttpMessageConverter@548afef7]
+23:40:59.627 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Null ModelAndView returned to DispatcherServlet with name '': assuming HandlerAdapter completed request handling
+23:40:59.627 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Successfully completed request
+23:40:59.774 [Test worker] DEBUG com.jayway.jsonpath.internal.CompiledPath - Evaluating path: $[0]['nome']
 </pre>
 </span>
 </div>
@@ -139,7 +138,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 2.14.1</a> at 09/08/2016 22:32:11</p>
+<a href="http://www.gradle.org">Gradle 2.14.1</a> at 09/08/2016 23:41:00</p>
 </div>
 </div>
 </body>

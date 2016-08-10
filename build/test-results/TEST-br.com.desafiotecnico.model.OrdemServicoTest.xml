@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="br.com.desafiotecnico.model.OrdemServicoTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2016-08-10T01:32:11" hostname="YT-1300" time="0.031">
+<testsuite name="br.com.desafiotecnico.model.OrdemServicoTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2016-08-10T02:40:59" hostname="YT-1300" time="0.027">
   <properties/>
-  <testcase name="deveCalcularOValorTotalParaClientePrataEMaisDeDezDiasParaOTermino" classname="br.com.desafiotecnico.model.OrdemServicoTest" time="0.027"/>
-  <testcase name="deveEfetuarOPagamentoERetornarOValorPagoIndependenteDaDataDeTermino" classname="br.com.desafiotecnico.model.OrdemServicoTest" time="0.001"/>
+  <testcase name="deveCalcularOValorTotalParaClientePrataEMaisDeDezDiasParaOTermino" classname="br.com.desafiotecnico.model.OrdemServicoTest" time="0.019"/>
+  <testcase name="deveEfetuarOPagamentoERetornarOValorPagoIndependenteDaDataDeTermino" classname="br.com.desafiotecnico.model.OrdemServicoTest" time="0.0"/>
   <testcase name="deveRetornarAQuantidadeDeDiasFaltantseParaEncerramento" classname="br.com.desafiotecnico.model.OrdemServicoTest" time="0.0"/>
   <testcase name="deveCalcularOValorTotalParaClientePrata" classname="br.com.desafiotecnico.model.OrdemServicoTest" time="0.001"/>
   <testcase name="deveEfetuarOPagamentoDaOrdemServico" classname="br.com.desafiotecnico.model.OrdemServicoTest" time="0.0"/>
   <testcase name="deveRetornarAQuantidadeDeDiasZeradaParaDataPosteriorAoEncerramento" classname="br.com.desafiotecnico.model.OrdemServicoTest" time="0.0"/>
   <testcase name="deveRetornarAQuantidadeDeDiasParaOEncerramento" classname="br.com.desafiotecnico.model.OrdemServicoTest" time="0.0"/>
   <testcase name="deveCalcularOValorTotalParaClienteOuroEMaisDeDezDiasParaOTermino" classname="br.com.desafiotecnico.model.OrdemServicoTest" time="0.0"/>
-  <testcase name="deveCalcularOValorTotalParaClienteOuro" classname="br.com.desafiotecnico.model.OrdemServicoTest" time="0.001"/>
+  <testcase name="deveCalcularOValorTotalParaClienteOuro" classname="br.com.desafiotecnico.model.OrdemServicoTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

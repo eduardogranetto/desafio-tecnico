@@ -25,11 +25,4 @@ public class ServicoController {
 		return servicoService.buscarTodos();
 	}
 	
-	@ResponseBody
-	@RequestMapping(value="/client", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public List<Servico> client(){
-		return listar();
-	}
-	
-	
 }

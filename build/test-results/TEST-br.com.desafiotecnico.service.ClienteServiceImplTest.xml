@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="br.com.desafiotecnico.service.ClienteServiceImplTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2016-08-10T01:32:07" hostname="YT-1300" time="0.008">
+<testsuite name="br.com.desafiotecnico.service.ClienteServiceImplTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2016-08-10T02:40:54" hostname="YT-1300" time="0.01">
   <properties/>
-  <testcase name="deveVerificarAcessoAoRepositorio" classname="br.com.desafiotecnico.service.ClienteServiceImplTest" time="0.008"/>
+  <testcase name="deveVerificarAcessoAoRepositorio" classname="br.com.desafiotecnico.service.ClienteServiceImplTest" time="0.01"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
