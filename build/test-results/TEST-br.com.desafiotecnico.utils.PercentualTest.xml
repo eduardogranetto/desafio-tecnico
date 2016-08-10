@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="br.com.desafiotecnico.utils.PercentualTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2016-07-20T01:44:15" hostname="YT-1300" time="0.001">
+<testsuite name="br.com.desafiotecnico.utils.PercentualTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2016-08-10T01:32:11" hostname="YT-1300" time="0.002">
   <properties/>
-  <testcase name="deveRetornarOPercentualCorretamente" classname="br.com.desafiotecnico.utils.PercentualTest" time="0.001"/>
+  <testcase name="deveRetornarOPercentualCorretamente" classname="br.com.desafiotecnico.utils.PercentualTest" time="0.002"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
