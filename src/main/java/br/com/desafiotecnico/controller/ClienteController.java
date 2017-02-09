@@ -2,9 +2,9 @@ package br.com.desafiotecnico.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.com.desafiotecnico.model.Cliente;
@@ -80,7 +80,7 @@ public class ClienteController extends CRUDController<Cliente>{
 		return modelAndView.addObject(ATRIBUTO_TIPOS, Tipo.values());
 	}
 	
-	@RequestMapping(value="/{id}/ordens_servico", method=RequestMethod.GET)
+	@GetMapping("/{id}/ordens_servico")
 	public ModelAndView ordensServico(@PathVariable(value="id") Long id){
 		return new ModelAndView(ORDEM_SERVICO).addObject(ATRIBUTO_CLIENTE, clienteService.buscarPorId(id)); 
 	}

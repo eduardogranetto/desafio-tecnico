@@ -6,8 +6,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PagedResourcesAssembler;
 import org.springframework.hateoas.PagedResources;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,13 +25,13 @@ public class OrdemServicoController {
 	private OrdemServicoAssembler ordemServicoAssembler;
 	
 	@ResponseBody
-	@RequestMapping(value="/ordens_servico", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@GetMapping(value="/ordens_servico", produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public Page<OrdemServico> listar(Pageable pageable){
 		return ordemServicoService.buscarTodos(pageable);
 	}
 
 	@ResponseBody
-	@RequestMapping(value="/ordens_servico/hateoas", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@GetMapping(value="/ordens_servico/hateoas", produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public PagedResources<OrdemServico> listarHateoas(Pageable pageable,  PagedResourcesAssembler assembler){
 		return assembler.toResource(ordemServicoService.buscarTodos(pageable), ordemServicoAssembler);
 	}

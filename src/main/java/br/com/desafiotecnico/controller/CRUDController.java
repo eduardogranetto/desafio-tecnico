@@ -5,10 +5,11 @@ import static br.com.desafiotecnico.utils.Constantes.MENSAGEM_SUCESSO;
 import javax.validation.Valid;
 
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -38,17 +39,17 @@ public abstract class CRUDController<T extends GenericEntity> {
 		return modelAndView;
 	}
 	
-	@RequestMapping(value="/", method=RequestMethod.GET)
+	@GetMapping(value="/")
 	public ModelAndView index(){
 		return new ModelAndView(getIndexPathView()).addObject(getNomeAtributoIndex(), getService().buscarTodos());
 	}
 	
-	@RequestMapping(value="/novo", method=RequestMethod.GET)
+	@GetMapping(value="/novo")
 	public ModelAndView novo(){
 		return form(criarInstancia()); 
 	}
 
-	@RequestMapping(value="/salvar", method=RequestMethod.POST)
+	@PostMapping(value="/salvar")
 	public ModelAndView salvar(@Valid @ModelAttribute T entidade, BindingResult result, RedirectAttributes attributes){
 		if(result.hasErrors()){
 			return form(entidade);
@@ -58,17 +59,17 @@ public abstract class CRUDController<T extends GenericEntity> {
 		return new ModelAndView(getUrlRedirectAfterSave());
 	}
 
-	@RequestMapping(value="/{id}/editar", method=RequestMethod.GET)
+	@GetMapping(value="/{id}/editar")
 	public ModelAndView editar(@PathVariable(value="id") Long id){
 		return form(getService().buscarPorId(id)); 
 	}
 	
-	@RequestMapping(value="/{id}/remover", method=RequestMethod.GET)
+	@GetMapping(value="/{id}/remover")
 	public ModelAndView remover(@PathVariable(value="id") Long id){
 		return new ModelAndView(getRemovePathView()).addObject(getNomeAtributoFormulario(), getService().buscarPorId(id));
 	}
 
-	@RequestMapping(value="/{id}/remover", method=RequestMethod.DELETE)
+	@DeleteMapping(value="/{id}/remover")
 	public ModelAndView excluir(@PathVariable(value="id") Long id, RedirectAttributes redirectAttributes){
 		redirectAttributes.addFlashAttribute(MENSAGEM_SUCESSO, getMensagemRemovido());
 		getService().remover(id);

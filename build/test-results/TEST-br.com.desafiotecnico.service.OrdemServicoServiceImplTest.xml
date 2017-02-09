@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="br.com.desafiotecnico.service.OrdemServicoServiceImplTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2016-08-10T02:40:54" hostname="YT-1300" time="0.193">
+<testsuite name="br.com.desafiotecnico.service.OrdemServicoServiceImplTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2017-02-09T11:52:44" hostname="LECOM-01381" time="0.003">
   <properties/>
-  <testcase name="deveCancelarOPagamentoDeUmaOrdemDeServico" classname="br.com.desafiotecnico.service.OrdemServicoServiceImplTest" time="0.019"/>
-  <testcase name="deveCriarUmaOrdemServicoBaseadoNoCliente" classname="br.com.desafiotecnico.service.OrdemServicoServiceImplTest" time="0.166"/>
-  <testcase name="deveCriarUmaOrdemServicoBaseadoNoServico" classname="br.com.desafiotecnico.service.OrdemServicoServiceImplTest" time="0.001"/>
-  <testcase name="deveEvetuarOPagamentoDeUmaOrdemDeServico" classname="br.com.desafiotecnico.service.OrdemServicoServiceImplTest" time="0.001"/>
+  <testcase name="deveCancelarOPagamentoDeUmaOrdemDeServico" classname="br.com.desafiotecnico.service.OrdemServicoServiceImplTest" time="0.001"/>
+  <testcase name="deveCriarUmaOrdemServicoBaseadoNoCliente" classname="br.com.desafiotecnico.service.OrdemServicoServiceImplTest" time="0.001"/>
+  <testcase name="deveCriarUmaOrdemServicoBaseadoNoServico" classname="br.com.desafiotecnico.service.OrdemServicoServiceImplTest" time="0.0"/>
+  <testcase name="deveEvetuarOPagamentoDeUmaOrdemDeServico" classname="br.com.desafiotecnico.service.OrdemServicoServiceImplTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
